@@ -1,0 +1,23 @@
+{
+  "name": "pub-src-http",
+  "version": "0.5.0",
+  "description": "HTTP source for pub-server and pub-generator - uses request in node, jquery in browser",
+  "main": "pub-src-http.js",
+  "dependencies": {
+    "request": "*",
+    "pub-util": "*"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "should": "*"
+  },
+  "scripts": {
+    "test": "mocha --ui qunit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jldec/pub-src-http.git"
+  },
+  "author": "jurgen leschner",
+  "license": "MIT"
+}
