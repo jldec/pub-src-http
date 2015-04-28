@@ -27,13 +27,13 @@ source.get(function(err, result) {
 - timeout in ms - defaults to 5000
 
 ### source.get(cb)
-- `get()` fetches JSON in a single HTTP GET request from the endpoint in source.path 
+- `get()` fetches JSON in a single HTTP GET request from the endpoint in source.path
 - the result should be an array of file objects each with a `path:` and a `text:` property
-- for non "FILE" type sources, other JSON structures may be retrieved 
+- for non "FILE" type sources, other JSON structures may be retrieved
 
 ### source.put(files, [options], cb)
 - does nothing unless `writable` is set on the source
-- serializes files into JSON and transmits them via HTTP POST to the endpoint in source.path 
+- serializes files into JSON and transmits them via HTTP POST to the endpoint in source.path
 
 ```javascript
 source.put(files, function(err, result) {

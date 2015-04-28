@@ -1,15 +1,15 @@
 {
   "name": "pub-src-http",
-  "version": "0.5.0",
+  "version": "1.0.0",
   "description": "HTTP source for pub-server and pub-generator - uses request in node, jquery in browser",
   "main": "pub-src-http.js",
   "dependencies": {
-    "request": "*",
-    "pub-util": "*"
+    "request": "^2.55.0",
+    "pub-util": "^1.0.0"
   },
   "devDependencies": {
-    "mocha": "*",
-    "should": "*"
+    "mocha": "^2.2.4",
+    "should": "^6.0.1"
   },
   "scripts": {
     "test": "mocha --ui qunit"
