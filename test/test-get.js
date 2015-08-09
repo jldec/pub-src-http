@@ -4,20 +4,18 @@
  *
 **/
 
-suite('test-get');
+var test = require('tape');
 
-var assert = require('assert')
 var u = require('pub-util')
 
-test('get JSON array from somewhere', function(done) {
-  this.timeout(10000);
+test('get JSON array from somewhere', { timeout:10000 }, function(t) {
 
   var source = require('../pub-src-http')( { path:'https://raw.githubusercontent.com/jldec/pub-src-http/master/test/test.json' } );
 
   source.get(function(err, data) {
-    if (err) return done(err);
-    assert(u.isArray(data));
-    done();
+    t.error(err);
+    t.assert(u.isArray(data));
+    t.end();
   });
 
 });
