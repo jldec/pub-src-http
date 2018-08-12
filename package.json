@@ -1,14 +1,14 @@
 {
   "name": "pub-src-http",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "HTTP source for pub-server and pub-generator - uses request in node, jquery in browser",
   "main": "pub-src-http.js",
   "dependencies": {
-    "pub-util": "^2.1.1",
-    "request": "^2.65.0"
+    "pub-util": "^3.0.0",
+    "request": "^2.88.0"
   },
   "devDependencies": {
-    "tape": "^4.2.2"
+    "tape": "^4.9.0"
   },
   "scripts": {
     "test": "tape test/*.js"
