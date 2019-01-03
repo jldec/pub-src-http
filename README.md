@@ -1,4 +1,5 @@
 # pub-src-http
+[![Build Status](https://api.travis-ci.org/jldec/pub-src-http.svg?branch=master)](https://travis-ci.org/jldec/pub-src-http)
 
 HTTP source for pub-server and pub-generator
 

@@ -1,21 +1,27 @@
 /**
  * test-get.js
- * copyright 2015, Jurgen Leschner - github.com/jldec - MIT license
+ * copyright 2015-2019, Jurgen Leschner - github.com/jldec - MIT license
  *
 **/
 
 var test = require('tape');
+var fs = require('fs');
 
-var u = require('pub-util')
+var expected = JSON.parse(fs.readFileSync(__dirname + '/test.json'));
 
-test('get JSON array from somewhere', { timeout:10000 }, function(t) {
+test('get JSON array from somewhere', { timeout:30000 }, function(t) {
 
   var source = require('../pub-src-http')( { path:'https://raw.githubusercontent.com/jldec/pub-src-http/master/test/test.json' } );
 
   source.get(function(err, data) {
     t.error(err);
-    t.assert(u.isArray(data));
+    t.deepEqual(data, expected, 'data matches expected');
     t.end();
   });
 
 });
+
+
+// TODO
+// - test put
+// - test $ variants

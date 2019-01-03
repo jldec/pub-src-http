@@ -3,10 +3,10 @@
  * uses request in node, jquery in browser
  * https://github.com/mikeal/request
  *
- * copyright 2015, Jurgen Leschner - github.com/jldec - MIT license
+ * copyright 2015-2019, Jurgen Leschner - github.com/jldec - MIT license
 **/
 
-var u = require('pub-util');
+/* global $ */
 
 module.exports = function sourceHttp(sourceOpts) {
 
@@ -54,11 +54,10 @@ module.exports = function sourceHttp(sourceOpts) {
   }
 
   function get$(cb) {
-    if (typeof options === 'function') { cb = options; options = {}; }
 
     $.getJSON(src.path)
-    .done(function(respData) { cb(null, respData); })
-    .fail(function(jqXHR) { cb(new Error(jqXHR.responseText)); });
+      .done(function(respData) { cb(null, respData); })
+      .fail(function(jqXHR) { cb(new Error(jqXHR.responseText)); });
   }
 
   // HTTP post sends json, and expects json response
@@ -68,19 +67,17 @@ module.exports = function sourceHttp(sourceOpts) {
     if (!sourceOpts.writable) return cb(new Error('cannot write to non-writable source'));
 
     $.ajax(
-    { url: src.path,
-      type: "POST",
-      contentType: "application/json; charset=utf-8",
-      timeout: sourceOpts.timeout || 5000,
-      data: JSON.stringify(data),
-      dataType: "json" }
-    )
-    .done(function(respData) {
+      { url: src.path,
+        type: 'POST',
+        contentType: 'application/json; charset=utf-8',
+        timeout: sourceOpts.timeout || 5000,
+        data: JSON.stringify(data),
+        dataType: 'json' }
+    ).done(function(respData) {
       cb(null, respData);
-    })
-    .fail(function(jqXHR) {
+    }).fail(function(jqXHR) {
       cb(new Error(jqXHR.responseText));
     });
   }
 
-}
+};
