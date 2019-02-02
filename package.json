@@ -1,6 +1,6 @@
 {
   "name": "pub-src-http",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "HTTP source for pub-server and pub-generator - uses request in node, jquery in browser",
   "main": "pub-src-http.js",
   "dependencies": {

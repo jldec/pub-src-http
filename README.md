@@ -13,7 +13,7 @@ var src = require('pub-src-http');
 
 // instantiate source
 // options become properties of source
-var source = src( { path:'http://....', timeout:10000 } );
+var source = src( { path:'https://....', timeout:10000 } );
 
 source.get(function(err, result) {
   if (err) return console.log(err);
