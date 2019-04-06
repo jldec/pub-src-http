@@ -1,4 +1,5 @@
 # pub-src-http
+[![Azure Build Status](https://dev.azure.com/jldec/pub-src-http/_apis/build/status/jldec.pub-src-http?branchName=master)](https://dev.azure.com/jldec/pub-src-http/_build/latest?definitionId=1&branchName=master)
 [![Build Status](https://api.travis-ci.org/jldec/pub-src-http.svg?branch=master)](https://travis-ci.org/jldec/pub-src-http)
 
 HTTP source for pub-server and pub-generator
