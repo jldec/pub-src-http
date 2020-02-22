@@ -3,7 +3,7 @@
  * uses request in node, jquery in browser
  * https://github.com/mikeal/request
  *
- * copyright 2015-2019, Jurgen Leschner - github.com/jldec - MIT license
+ * copyright 2015-2020, Jürgen Leschner - github.com/jldec - MIT license
 **/
 
 /* global $ */
