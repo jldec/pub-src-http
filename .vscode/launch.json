@@ -7,8 +7,8 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "test-get.js",
-      "program": "${workspaceRoot}/test/test-get.js",
+      "name": "test-get-put.js",
+      "program": "${workspaceRoot}/test/test-get-put.js",
       "cwd": "${workspaceRoot}"
     }
   ]

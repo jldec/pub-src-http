@@ -1,86 +1,57 @@
 /**
  * pub-src-http.js
- * uses request in node, jquery in browser
- * https://github.com/mikeal/request
+ * uses node-fetch in node, built-in fetch in browser
  *
  * copyright 2015-2020, Jürgen Leschner - github.com/jldec - MIT license
 **/
 
-/* global $ */
-
 module.exports = function sourceHttp(sourceOpts) {
 
-  var src = {
-    path: sourceOpts.path || '/' };
+  var fetch = fetch || require('node-fetch');
 
-  var request = require('request');
-
-  if (typeof request === 'function') {
-
-    request = request.defaults( {
-      timeout:sourceOpts.timeout || 5000,
-      json:true } );
-
-    src.get = getRequest;
-    src.put = putRequest;
-
-  }
-  else {
-
-    src.get = get$;
-    src.put = put$;
-  }
-
-  return src;
+  return {
+    get: get,
+    put: put
+  };
 
   //--//--//--//--//--//--//--//--//--//--//
 
-  function getRequest(options, cb) {
+  function get(options, cb) {
     if (typeof options === 'function') { cb = options; options = {}; }
-    request.get(src.path, function(err, resp, body) {
-      if (err || resp.statusCode != 200) return cb(err || resp.statusCode);
-      cb(null, body);
-    });
+
+    options.method = 'GET';
+    options.credentials = 'include';
+
+    fetch(options.url || sourceOpts.path, options)
+      .then(function(res) {
+        if (!res.ok) {
+          throw new Error('http-src get: '+ res.status + ' ' + res.statusText);
+        }
+        return res.json(); // simply assume json
+      })
+      .then(function(respData) { cb(null, respData); })
+      .catch(function(err) { cb(err); });
   }
 
-  function putRequest(data, options, cb) {
-    if (typeof options === 'function') { cb = options; options = {}; }
-    if (!sourceOpts.writable) return cb(new Error('cannot write to non-writable source'));
-
-    options.url = options.url || src.path;
-    options.json = true;
-    options.body = data;
-    request.post(options, function(err, resp, body) {
-      if (err || resp.statusCode != 200) return cb(err || resp.statusCode);
-      cb(null, body);
-    });
-  }
-
-  function get$(cb) {
-
-    $.getJSON(src.path)
-      .done(function(respData) { cb(null, respData); })
-      .fail(function(jqXHR) { cb(new Error(jqXHR.responseText)); });
-  }
-
-  // HTTP post sends json, and expects json response
-  // metaData ignored for now
-  function put$(data, options, cb) {
+  function put(data, options, cb) {
     if (typeof options === 'function') { cb = options; options = {}; }
     if (!sourceOpts.writable) return cb(new Error('cannot write to non-writable source'));
 
-    $.ajax(
-      { url: src.path,
-        type: 'POST',
-        contentType: 'application/json; charset=utf-8',
-        timeout: sourceOpts.timeout || 5000,
-        data: JSON.stringify(data),
-        dataType: 'json' }
-    ).done(function(respData) {
-      cb(null, respData);
-    }).fail(function(jqXHR) {
-      cb(new Error(jqXHR.responseText));
-    });
+    options.method = 'POST';
+    options.credentials = 'include';
+    options.body = JSON.stringify(data);
+    options.headers = options.headers || {};
+    options.headers['Content-Type'] = 'application/json; charset=utf-8';
+
+    fetch(options.url || sourceOpts.path, options)
+      .then(function(res) {
+        if (!res.ok) {
+          throw new Error('http-src get: '+ res.status + ' ' + res.statusText);
+        }
+        return res.json(); // simply assume json
+      })
+      .then(function(respData) { cb(null, respData); })
+      .catch(function(err) { cb(err); });
   }
 
 };

@@ -1,10 +1,10 @@
 {
   "name": "pub-src-http",
-  "version": "1.0.13",
-  "description": "HTTP source for pub-server and pub-generator - uses request in node, jquery in browser",
+  "version": "1.1.0",
+  "description": "HTTP source for pub-server and pub-generator - uses node-fetch in node, built-in fetch in browser",
   "main": "pub-src-http.js",
   "dependencies": {
-    "request": "^2.88.2"
+    "node-fetch": "^2.6.0"
   },
   "devDependencies": {
     "eslint": "^6.8.0",
