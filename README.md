@@ -35,6 +35,7 @@ source.get(function(err, result) {
 ### source.put(files, [options], cb)
 - does nothing unless `writable` is set on the source
 - serializes files into JSON and transmits them via HTTP POST to the endpoint in source.path
+- options.url can be used to override endpoint
 
 ```javascript
 source.put(files, function(err, result) {

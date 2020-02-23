@@ -47,7 +47,10 @@ module.exports = function sourceHttp(sourceOpts) {
     if (typeof options === 'function') { cb = options; options = {}; }
     if (!sourceOpts.writable) return cb(new Error('cannot write to non-writable source'));
 
-    request.post(src.path, function(err, resp, body) {
+    options.url = options.url || src.path;
+    options.json = true;
+    options.body = data;
+    request.post(options, function(err, resp, body) {
       if (err || resp.statusCode != 200) return cb(err || resp.statusCode);
       cb(null, body);
     });
