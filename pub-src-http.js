@@ -7,7 +7,7 @@
 
 module.exports = function sourceHttp(sourceOpts) {
 
-  var fetch = fetch || require('node-fetch');
+  var fetch = (typeof window !== 'undefined' && window.fetch) || require('node-fetch');
 
   return {
     get: get,
