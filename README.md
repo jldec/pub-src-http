@@ -1,5 +1,5 @@
 # pub-src-http
-![CI](https://github.com/jldec/pub-src-http/workflows/CI/badge.svg)
+[![CI](https://github.com/jldec/pub-src-http/workflows/CI/badge.svg)](https://github.com/jldec/pub-src-http/actions)
 
 HTTP source for pub-server and pub-generator
 
