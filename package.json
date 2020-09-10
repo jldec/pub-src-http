@@ -1,13 +1,13 @@
 {
   "name": "pub-src-http",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "description": "HTTP source for pub-server and pub-generator - uses node-fetch in node, built-in fetch in browser",
   "main": "pub-src-http.js",
   "dependencies": {
-    "node-fetch": "^2.6.0"
+    "node-fetch": "^2.6.1"
   },
   "devDependencies": {
-    "eslint": "^7.5.0",
+    "eslint": "^7.8.1",
     "tape": "^5.0.1"
   },
   "files": [
