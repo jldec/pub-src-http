@@ -2,7 +2,7 @@
  * pub-src-http.js
  * uses node-fetch in node, built-in fetch in browser
  *
- * copyright 2015-2020, Jürgen Leschner - github.com/jldec - MIT license
+ * Copyright (c) 2015-2022 Jürgen Leschner - github.com/jldec - MIT license
 **/
 
 module.exports = function sourceHttp(sourceOpts) {
