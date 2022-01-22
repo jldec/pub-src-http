@@ -7,7 +7,15 @@
 
 module.exports = function sourceHttp(sourceOpts) {
 
-  var fetch = (typeof window !== 'undefined' && window.fetch) || require('node-fetch');
+  var fetch;
+
+  if (typeof window !== 'undefined' && window.fetch) {
+    fetch = window.fetch;
+  }
+  else {
+    // https://github.com/node-fetch/node-fetch#commonjs
+    fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
+  }
 
   return {
     get: get,
@@ -54,4 +62,4 @@ module.exports = function sourceHttp(sourceOpts) {
       .catch(function(err) { cb(err); });
   }
 
-};
+  };

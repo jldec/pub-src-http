@@ -11,7 +11,7 @@ var expected = JSON.parse(fs.readFileSync(__dirname + '/test.json'));
 
 test('get and put', { timeout:30000 }, function(t) {
 
-  var source = require('../pub-src-http')(
+  var source = require('../pub-src-http.cjs')(
     { path:'https://raw.githubusercontent.com/jldec/pub-src-http/master/test/test.json',
       writable: true }
   );
