@@ -1,8 +1,8 @@
 {
   "name": "pub-src-http",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "HTTP source for pub-server and pub-generator - uses node-fetch in node, built-in fetch in browser",
-  "main": "pub-src-http.js",
+  "main": "pub-src-http.cjs",
   "dependencies": {
     "node-fetch": "^3.2.0"
   },
