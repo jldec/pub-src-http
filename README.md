@@ -4,7 +4,7 @@
 HTTP source for pub-server and pub-generator
 
 * provides `get()` and `put()` for JSON reads and writes over http
-* uses [node-fetch](https://github.com/node-fetch/node-fetch) in node, built-in fetch in browser
+* uses built-in fetch in browser (requires node v18 or later)
 
 ## src(options)
 

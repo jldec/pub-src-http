@@ -2,20 +2,10 @@
  * pub-src-http.js
  * uses node-fetch in node, built-in fetch in browser
  *
- * Copyright (c) 2015-2022 Jürgen Leschner - github.com/jldec - MIT license
+ * Copyright (c) 2015-2024 Jürgen Leschner - github.com/jldec - MIT license
 **/
 
 module.exports = function sourceHttp(sourceOpts) {
-
-  var fetch;
-
-  if (typeof window !== 'undefined' && window.fetch) {
-    fetch = window.fetch;
-  }
-  else {
-    // https://github.com/node-fetch/node-fetch#commonjs
-    fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
-  }
 
   return {
     get: get,
@@ -62,4 +52,4 @@ module.exports = function sourceHttp(sourceOpts) {
       .catch(function(err) { cb(err); });
   }
 
-  };
+};

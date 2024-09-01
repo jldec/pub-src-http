@@ -1,17 +1,16 @@
 {
   "name": "pub-src-http",
-  "version": "1.2.1",
-  "description": "HTTP source for pub-server and pub-generator - uses node-fetch in node, built-in fetch in browser",
-  "main": "pub-src-http.cjs",
+  "version": "2.0.0",
+  "description": "HTTP source for pub-server and pub-generator - uses built-in fetch in node and browser",
+  "main": "pub-src-http.js",
   "dependencies": {
-    "node-fetch": "^3.2.0"
   },
   "devDependencies": {
-    "eslint": "^8.7.0",
-    "tape": "^5.4.1"
+    "eslint": "^8.57.0",
+    "tape": "^5.8.1"
   },
   "files": [
-    "pub-src-http.cjs"
+    "pub-src-http.js"
   ],
   "scripts": {
     "test": "eslint . && tape test/*.js"
